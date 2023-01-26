@@ -3,9 +3,6 @@
 
 ![NPM Downloads](https://img.shields.io/npm/dm/@voidpkg/console?style=for-the-badge)
 ![License](https://img.shields.io/npm/l/@voidpkg/console?style=for-the-badge)
-```bash
-Node Version >= 16.16.0
-```
 
 ### Installation
 ```bash
@@ -14,16 +11,23 @@ npm i @voidpkg/console --save
 yarn add @voidpkg/console
 ```
 
+### Images
+
+![Foreground](https://i.imgur.com/6SwTjOh.png)
+![Background](https://i.imgur.com/jnQflH9.png)
+
 <br>
 
 ### Importing
 
 ```js
-// CJS
-require("@voidpkg/console");
-
-// ESM
-import "@voidpkg/console";
+import { Consoler } from '@voidpkg/console'; // ESM
+const { Consoler } = require('@voidpkg/console'); // CJS
+new Consoler({
+    timestamp: false, // (default: false)
+    variant: 'background', // or 'foreground' (default: 'foreground')
+    title: "Global Title" // (default: 'SUCCESS', 'ERROR', 'WARNING', 'INFO', 'LOADING')
+});
 ```
 
 <br>
@@ -31,16 +35,6 @@ import "@voidpkg/console";
 # Usage
 
 ```js
-// Importing
-import { Consoler } from '@voidpkg/console'; // ESM
-const { Consoler } = require('@voidpkg/console'); // CJS
-new Consoler({
-    timestamp: false, // (default: false)
-    variant: 'background', // or 'foreground' (default: 'foreground')
-    title: "Global Title" // (default: 'SUCCESS', 'ERROR', 'WARN', 'INFO', 'LOADING')
-});
-
-
 // Basic Usage
 console.success('Successfully passed!');
 console.error('An error occurred!');
@@ -62,6 +56,42 @@ setTimeout(() => {
         console.success('Loading finished!');
     }, { title: 'Custom Title' });
 }, 10000);
+```
+
+<br>
+
+# Styling
+
+```js
+// Colors
+{c.red}Red{r}
+{c.green}Green{r}
+{c.yellow}Yellow{r}
+{c.blue}Blue{r}
+{c.magenta}Magenta{r}
+{c.cyan}Cyan{r}
+{c.white}White{r}
+{c.black}Black{r}
+{c.gray}Gray{r}
+
+// Styles
+{b}Bold{r}
+{i}Italic{r}
+{u}Underline{r}
+{s}Strikethrough{r}
+// or
+{bold}Bold{reset}
+{italic}Italic{reset}
+{underline}Underline{reset}
+{strikethrough}Strikethrough{reset}
+
+// Timestamp
+{tt}Timestamp{r}
+// or
+{timestamp}Timestamp{reset}
+
+// Indicators (Loading)
+{indicator}Indicator{r}
 ```
 
 <br>
